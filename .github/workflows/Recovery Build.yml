@@ -109,6 +109,7 @@ jobs:
         cd ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}
         set +e
         ${{ github.event.inputs.EXPORT_CODE }}
+        bash ${GITHUB_WORKSPACE}/scripts/ofrpcode.sh
         source build/envsetup.sh
         export ALLOW_MISSING_DEPENDENCIES=true
         set -e
