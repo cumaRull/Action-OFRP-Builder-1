@@ -5,7 +5,7 @@ export FOX_VERSION='R12.1'
 export OF_MAINTAINER=ismasrull
 export OF_USE_TWRP_SAR_DETECT='1'
 export FOX_VARIANT="RUI4"
-
+export FOX_BUILD_TYPE="Stable"
  
 # Binaries & Tools
  export FOX_USE_BASH_SHELL=1
