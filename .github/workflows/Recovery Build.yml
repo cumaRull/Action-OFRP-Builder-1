@@ -26,9 +26,10 @@ on:
       COMMON_TREE_URL:
         description: 'COMMON_TREE_URL (if no common tree, leave blank)'
         required: false
-      COMMON_PATH:
-        description: 'COMMON_PATH (if no common tree, leave blank)'
+      EXPORT_CODE:
+        description: 'ADD YOUR EXPORT CODE (if needed)'
         required: false
+        default: ''
       DEVICE_NAME:
         description: 'DEVICE_NAME'
         required: true
@@ -107,6 +108,7 @@ jobs:
       run: |
         cd ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}
         set +e
+        ${{ github.event.inputs.EXPORT_CODE }}
         source build/envsetup.sh
         export ALLOW_MISSING_DEPENDENCIES=true
         set -e
