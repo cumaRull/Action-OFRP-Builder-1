@@ -112,6 +112,10 @@ jobs:
         bash ${GITHUB_WORKSPACE}/scripts/ofrpcode.sh
         source build/envsetup.sh
         export ALLOW_MISSING_DEPENDENCIES=true
+        export USE_CCACHE=1 
+        export CCACHE_COMPRESS=1 
+        export CCACHE_MAXSIZE=50G
+        export TZ=Asia/Jakarta
         set -e
         lunch ${{ github.event.inputs.MAKEFILE_NAME }}-eng && make clean && mka adbd ${{ github.event.inputs.BUILD_TARGET }}image -j$(nproc --all)
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
